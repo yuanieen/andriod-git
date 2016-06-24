@@ -18,9 +18,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     static final int fanyi2 = 0;
     static final int fayin2 = 0;
-    private TextView textView;
-    private Button button2;
     private Button button;
+    private Button button2;
     private Button button3;
     private Button button4;
     private Button button5;
@@ -36,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private Button button15;
     private Button button18;
     private Button button19;
+    private EditText edittest1;
+    private EditText edittest2;
+    private Button plus;
+    private TextView answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        button2 = (Button) findViewById(R.id.button2);
+        //初始化
         button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
@@ -62,114 +66,166 @@ public class MainActivity extends AppCompatActivity {
         button19 = (Button) findViewById(R.id.button19);
         button18.setOnClickListener(fanyi);
         button19.setOnClickListener(fayin);
+        answer =(TextView)findViewById(R.id.answer);
+        edittest1 = (EditText) findViewById(R.id.edittest1);
+        edittest2 = (EditText) findViewById(R.id.edittest2);
+        plus = (Button)findViewById(R.id.plus);
 
 
-
-        textView = (TextView) findViewById(R.id.editText2);
-        button3.setOnClickListener(new View.OnClickListener()
-
-        {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
-                textView.setText("");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("媽媽");
+                }
+                else{
+                    edittest2.setText("媽媽");
+                }
             }
         });
-        button4.setOnClickListener(new View.OnClickListener()
 
-        {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
-                textView.append("的");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("爸爸");
+                }
+                else{
+                    edittest2.setText("爸爸");
+                }
             }
         });
-        button5.setOnClickListener(new View.OnClickListener()
+        //清空功能clear
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edittest1.setText("");
+                edittest2.setText("");
+
+            }
+        });button5.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("哥哥");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("哥哥");
+                }
+                else{
+                    edittest2.setText("哥哥");
+                }
             }
         });
         button6.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("姐姐");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("姊姊");
+                }
+                else{
+                    edittest2.setText("姊姊");
+                }
             }
         });
         button7.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("兒子");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("兒子");
+                }
+                else{
+                    edittest2.setText("兒子");
+                }
             }
         });
         button8.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("弟弟");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("弟弟");
+                }
+                else{
+                    edittest2.setText("弟弟");
+                }
             }
         });
         button9.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("妹妹");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("妹妹");
+                }
+                else{
+                    edittest2.setText("妹妹");
+                }
             }
         });
         button10.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("女兒");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("女兒");
+                }
+                else{
+                    edittest2.setText("女兒");
+                }
             }
         });
         button11.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("丈夫");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("丈夫");
+                }
+                else{
+                    edittest2.setText("丈夫");
+                }
             }
         });
         button12.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
-            public void onClick (View v){
-                textView.append("妻子");
+            public void onClick(View v) {
+                if(edittest1.isFocused()) {
+                    edittest1.setText("妻子");
+                }
+                else{
+                    edittest2.setText("妻子");
+                }
             }
         });
+        //顯示結果----------資料庫未完成/連結
         button14.setOnClickListener(new View.OnClickListener()
-
         {
             @Override
-            public void onClick (View v){
-                textView.setText("");
+            public void onClick(View v) {
+                answer.setText("結果");
+
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener()
-
-            {
-                @Override
-                public void onClick (View v){
-                textView.append("媽媽");
-            }
-            });
-
-        button2.setOnClickListener(new View.OnClickListener() {
+        plus.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
-                textView.append("爸爸");
+                edittest1.clearFocus();
+                edittest2.requestFocus();
             }
         });
+
 
 
 
