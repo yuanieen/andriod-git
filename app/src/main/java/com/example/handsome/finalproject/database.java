@@ -15,7 +15,8 @@ public class database extends ActionBarActivity {
     SQLiteDatabase db;
     DBOpenHelper openhelper;
 
-    String DATABASE_TABLE = "demotable";
+    String DATABASE_TABLE = "relationshiptable";
+    //建立column
     String DATABASE_CREATETABLE = "create table " +
             DATABASE_TABLE + "(稱謂, 父, 母, 兄, 弟, 姐， 妹， 子, 女, 夫, 妻);";
 
@@ -26,7 +27,7 @@ public class database extends ActionBarActivity {
 
         openhelper = new DBOpenHelper(this);
         db = openhelper.getWritableDatabase();
-
+        //使用insert指令
         ContentValues cv = new ContentValues();
         cv.put("稱謂", "父");
         cv.put("父", "祖父");
@@ -40,7 +41,7 @@ public class database extends ActionBarActivity {
         cv.put("夫", "XX");
         cv.put("妻", "母親");
         db.insert(DATABASE_TABLE, null, cv);
-
+        //第二筆資料開始使用execSQL指令使用SQL指令
         db.execSQL("insert into " + DATABASE_TABLE +
                 " values(母," + "'外祖父'" + "," + "'外祖母'" + "," + "'大舅舅'" + "," + "'小舅舅'" + "," + "'阿姨'" + "," + "'阿姨'" + "," + "'自己或哥哥或弟弟'" + "," + "'自己或姐姐或妹妹'" + "," + "'父親'" + "," + "'XX'" + ");");
         db.execSQL("insert into " + DATABASE_TABLE +
@@ -71,15 +72,17 @@ public class database extends ActionBarActivity {
         db.execSQL(DATABASE_CREATETABLE);
         db.close();
     }
-
+    //建立/管理資料庫
     class DBOpenHelper extends SQLiteOpenHelper {
         public DBOpenHelper(Context context) {
             super(context, "demo.db", null, 1);
         }
+        //沒有資料庫時建立資料庫
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(DATABASE_CREATETABLE);
         }
+        //更新資料庫，但此project只有查詢沒有更新，所以沒有動作
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
         }
